@@ -27,7 +27,6 @@
         return;
     }
     
-    
     CGContextSetLineWidth(ctx, YYStockTimeLineWidth);
     CGPoint firstPoint = [self.drawPositionModels.firstObject CGPointValue];
     
@@ -48,6 +47,7 @@
     
     
     CGContextSetFillColorWithColor(ctx, [UIColor YYStock_timeLineBgColor].CGColor);
+    
     CGPoint lastPoint = [self.drawPositionModels.lastObject CGPointValue];
     
     //画背景色
@@ -59,6 +59,7 @@
     }
     CGContextAddLineToPoint(ctx, lastPoint.x, CGRectGetMaxY(self.frame));
     CGContextAddLineToPoint(ctx, firstPoint.x, CGRectGetMaxY(self.frame));
+    
     CGContextClosePath(ctx);
     CGContextFillPath(ctx);
 }
@@ -71,6 +72,7 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         [self setNeedsDisplay];
     });
+    
     return [self.drawPositionModels copy];
 }
 
